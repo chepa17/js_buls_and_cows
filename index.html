@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bols and cows</title>
+  <link href="./style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <button id="start" class="button">New Game</button>
+  <form>
+    <fieldset class="set">
+    <legend>Введите 4 значное число с разными цифрами</legend>
+    <label>
+        <input id="number" type="number" value="1234" name="number" min="1000" max="9999"><br>      
+    </label>
+  </fieldset>
+  </form>
+  <button id="ok" class="button">OK</button>
+  <div class="results">
+    <div id="round" class="round"> </div>
+    <div id="guess" class="guess">Guess</div>
+    <div id="result" class="result">Result</div>
+  </div>
+  <div id="win" class="win"></div>
+  <script type="text/javascript" src="./main.js"></script>
+</body>
+</html>

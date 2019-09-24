@@ -1,0 +1,23 @@
+.button{
+  margin: 20px;
+  width: 100px;
+  height: 40px;
+}
+
+.results{
+  display: flex;
+}
+
+.results>div {
+  padding: 0 30px;
+}
+
+.set {
+  max-width: 350px;
+}
+
+.win {
+  font-size: 32px;
+  color: red;
+  text-align: center;
+}
