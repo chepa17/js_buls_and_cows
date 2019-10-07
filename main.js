@@ -12,10 +12,10 @@ const winMassage = document.getElementById('win');
 
 const generatorIA = () => {
   const n1 = Math.floor(Math.random() * 9) + 1;
-  let n2 = Math.floor(Math.random() * 9);
+  let n2 = Math.floor(Math.random() * 9);// змінні n генерують цифри числа
   if (n2 >= n1) {n2++};
   let n3 = Math.floor(Math.random() * 8);
-  let k1 = Math.max(n1, n2);
+  let k1 = Math.max(n1, n2);//змінні k технічні і потрібні для перескоку нашого генератору через вже викоричтані цифри
   let k2 = Math.min(n1, n2);
   if (n3 >= k2 && n3 < (k1 - 1)) {n3++} else { 
     if (n3 >= (k1 - 1)) {n3 = n3 + 2}
