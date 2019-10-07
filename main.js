@@ -10,7 +10,7 @@ const guessDiv = document.getElementById('guess');
 const resultDiv = document.getElementById('result');
 const winMassage = document.getElementById('win');
 
-generatorIA = () => {
+const generatorIA = () => {
   const n1 = Math.floor(Math.random() * 9) + 1;
   let n2 = Math.floor(Math.random() * 9);
   if (n2 >= n1) {n2++};
@@ -33,8 +33,19 @@ generatorIA = () => {
   return n1 * 1000 + n2 * 100 + n3 * 10 + n4;
 };
 
+
+let numberIA = generatorIA();
+
+let numberIAList = [
+  Math.floor(numberIA / 1000),
+  Math.floor((numberIA % 1000) / 100),
+  Math.floor((numberIA % 100) / 10),
+  numberIA % 10
+];
+
 isLegal = (list) => {
-  return ((list.sort().filter((e, i, a) => (a[i] !== a[i-1])).length === list.length) && (+list.join('') > 1000));
+  const test = [...list];
+  return ((test.sort((a,b)=>(b-a)).filter((e, i, a) => (a[i] !== a[i-1])).length === test.length) && (+test.join('') > 1000));
 }
 
 printResult = (list) => {
@@ -57,17 +68,11 @@ okButton.onclick = () => {
     okButton.innerHTML = "Invalid number"
   } else {
   round++;
-  const numberIA = generatorIA();
-  memoryGuess.push(numberIA);
+  memoryGuess.push(number);
   let bull = 0;
   let cow = 0;
   
-  let numberIAList = [
-    Math.floor(numberIA / 1000),
-    Math.floor((numberIA % 1000) / 100),
-    Math.floor((numberIA % 100) / 10),
-    numberIA % 10
-  ];
+  
   for (i = 0; i < 4; i++) {
     if (numberList[i] === numberIAList [i]) {
       bull++;
@@ -95,10 +100,16 @@ ngButton.onclick = () => {
   memoryGuess = ["Guess"];
   memoryResult = ["Result"];
   memoryRound = [""];
+  numberIA = generatorIA();
+  numberIAList = [
+    Math.floor(numberIA / 1000),
+    Math.floor((numberIA % 1000) / 100),
+    Math.floor((numberIA % 100) / 10),
+    numberIA % 10
+  ];
   roundDiv.innerHTML = printResult(memoryRound);
   guessDiv.innerHTML = printResult(memoryGuess);
   resultDiv.innerHTML = printResult(memoryResult);
   winMassage.innerHTML = "";
-  console.log(memoryGuess);
 }
 
