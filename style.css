@@ -16,6 +16,11 @@
   max-width: 350px;
 }
 
+.rules {
+  margin: 20px;
+  margin-top: 0;
+}
+
 .win {
   font-size: 32px;
   color: red;
