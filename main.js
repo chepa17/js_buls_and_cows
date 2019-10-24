@@ -45,7 +45,7 @@ let numberIAList = [
 
 isLegal = (list) => {
   const test = [...list];
-  return ((test.sort((a,b)=>(b-a)).filter((e, i, a) => (a[i] !== a[i-1])).length === test.length) && (+test.join('') > 1000));
+  return ((test.sort((a,b)=>(b-a)).filter((e, i, a) => (a[i] !== a[i-1])).length === test.length) && (+test.join('') > 1000) && (+test.join('') < 10000));
 }
 
 printResult = (list) => {
